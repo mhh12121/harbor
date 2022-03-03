@@ -958,6 +958,70 @@ paths:
           $ref: '#/responses/404'
         '500':
           $ref: '#/responses/500'
+  /projects/{project_name}/apptemplates:
+    get:
+      summary: List app templates
+      description: List app templates...
+      tags:
+        - apptemplate
+      operationId: listAppTemplates
+      parameters:
+        - $ref: '#/parameters/requestId'
+        - $ref: '#/parameters/projectName'
+        - $ref: '#/parameters/query'
+        - $ref: '#/parameters/sort'
+        - $ref: '#/parameters/page'
+        - $ref: '#/parameters/pageSize'
+      responses:
+        '200':
+          description: Success
+          headers:
+            X-Total-Count:
+              description: The total count of apptemplates
+              type: integer
+            Link:
+              description: Link refers to the previous page and next page
+              type: string
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AppTemplate'
+        '400':
+          $ref: '#/responses/400'
+        '401':
+          $ref: '#/responses/401'
+        '403':
+          $ref: '#/responses/403'
+        '404':
+          $ref: '#/responses/404'
+        '500':
+          $ref: '#/responses/500'
+    post:
+      summary: add apptemplate
+      description: add apptemplate
+      operationId: addAppTemplate
+      parameters:
+        - $ref: '#/parameters/requestId'
+        - $ref: '#/parameters/projectName'
+        - name: from
+          in: body
+          description: The JSON object of apptemplate.
+          required: true
+          schema:
+            $ref: '#/definitions/AppTemplate'
+      responses:
+        '200':
+          description: Success
+        '400':
+          $ref: '#/responses/400'
+        '401':
+          $ref: '#/responses/401'
+        '403':
+          $ref: '#/responses/403'
+        '404':
+          $ref: '#/responses/404'
+        '500':
+          $ref: '#/responses/500'
   /projects/{project_name}/repositories/{repository_name}/artifacts:
     get:
       summary: List artifacts
@@ -5764,6 +5828,38 @@ definitions:
         type: string
         format: date-time
         description: The update time of the repository
+  AppTemplate:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: id
+      global_id:
+        type: string
+        description: abc
+      project_id:
+        type: integer
+        format: int64
+        description: The ID of the project that the artifact belongs to
+      icon:
+        type: string
+        description: The digest of the icon
+      manifest_loc:
+        type: string
+        description: manfiest
+      create_time:
+        type: string
+        format: date-time
+        description: The push time of the artifact
+      update_time:
+        type: string
+        format: date-time
+        description: The latest pull time of the artifact
+      extra_attrs:
+        $ref: '#/definitions/ExtraAttrs'
+      annotations:
+        $ref: '#/definitions/Annotations'
   Artifact:
     type: object
     properties:
