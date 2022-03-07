@@ -54,6 +54,7 @@ const (
 	ResourceScan                  = Resource("scan")
 	ResourceScanner               = Resource("scanner")
 	ResourceArtifact              = Resource("artifact")
+	ResourceAppTemplate           = Resource("apptemplate")
 	ResourceTag                   = Resource("tag")
 	ResourceArtifactAddition      = Resource("artifact-addition")
 	ResourceArtifactLabel         = Resource("artifact-label")

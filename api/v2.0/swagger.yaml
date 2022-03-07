@@ -999,6 +999,8 @@ paths:
     post:
       summary: add apptemplate
       description: add apptemplate
+      tags:
+        - apptemplate
       operationId: addAppTemplate
       parameters:
         - $ref: '#/parameters/requestId'
@@ -5837,7 +5839,10 @@ definitions:
         description: id
       global_id:
         type: string
-        description: abc
+        description: global_id
+      app_name:
+        type: string
+        description: app name
       project_id:
         type: integer
         format: int64

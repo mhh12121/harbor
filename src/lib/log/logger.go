@@ -33,7 +33,7 @@ const srcSeparator = "harbor" + string(os.PathSeparator) + "src"
 func init() {
 	lvl := os.Getenv("LOG_LEVEL")
 	if len(lvl) == 0 {
-		logger.setLevel(InfoLevel)
+		logger.setLevel(DebugLevel)
 		return
 	}
 

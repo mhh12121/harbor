@@ -96,7 +96,8 @@ VERSIONTAG=dev
 BUILD_BASE=true
 PUSHBASEIMAGE=false
 BASEIMAGETAG=dev
-BUILDBASETARGET=chartserver trivy-adapter core db jobservice log nginx notary-server notary-signer portal prepare redis registry registryctl exporter
+#chartserver trivy-adapter core db jobservice log nginx notary-server notary-signer portal prepare redis registry registryctl exporter
+BUILDBASETARGET=db
 BASEIMAGENAMESPACE=goharbor
 # #input true/false only
 PULL_BASE_FROM_DOCKERHUB=true

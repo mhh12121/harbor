@@ -130,6 +130,7 @@ _build_prepare:
 	@$(DOCKERBUILD_WITH_PULL_PARA) --build-arg harbor_base_image_version=$(BASEIMAGETAG) --build-arg harbor_base_namespace=$(BASEIMAGENAMESPACE) -f $(DOCKERFILEPATH_PREPARE)/$(DOCKERFILENAME_PREPARE) -t $(DOCKERIMAGENAME_PREPARE):$(VERSIONTAG) .
 	@echo "Done."
 
+# docker build --no-cache --pull=true --build-arg harbor_base_image_version=dev --build-arg harbor_base_namespace=goharbor  -t goharbor/harbor-db:dev .
 _build_db:
 	@$(call _build_base,$(DB),$(DOCKERFILEPATH_DB))
 	@echo "building db container for photon..."

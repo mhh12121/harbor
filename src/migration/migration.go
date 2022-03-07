@@ -37,11 +37,13 @@ func MigrateDB(database *models.Database) error {
 	// check the database schema version
 	migrator, err := dao.NewMigrator(database.PostGreSQL)
 	if err != nil {
+		log.Debugf("%+v", err)
 		return err
 	}
 	defer migrator.Close()
 	schemaVersion, _, err := migrator.Version()
 	if err != nil && err != migrate.ErrNilVersion {
+		log.Debugf("%+v", err)
 		return err
 	}
 	log.Debugf("current database schema version: %v", schemaVersion)

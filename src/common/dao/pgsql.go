@@ -33,7 +33,7 @@ import (
 	_ "github.com/lib/pq"                                      // register pgsql driver
 )
 
-const defaultMigrationPath = "migrations/postgresql/"
+const defaultMigrationPath = "/home/doujohner/.gvm/pkgsets/go1.17/global/src/github.com/harbor/make/migrations/postgresql" //"migrations/postgresql/"
 
 type pgsql struct {
 	host         string
